@@ -1,0 +1,42 @@
+<div class="container">
+ <div class="row content">
+  <div class='col-xs-12'>
+    <h1>Editing Book</h1>
+    
+
+         <% if @one.errors.any? %>
+            <%= @one.errors.count %>error prohibited this obj from being saved:
+            <% @one.errors.full_messages.each do |message| %>
+                <%= message %>
+            <% end %>
+         <% end %>
+     <%= form_for (@one) do |f| %> 
+
+        <p>Title</p>
+        <%= f.text_field :title, class:"col-xs-12" %><br>
+        <p>Opinion</p>
+        <%= f.text_field :body, class:"col-xs-12" %><br>
+        <p></p><br>
+
+        <%= f.submit "Update Book", class:"btn btn-primary col-xs-12" %></div><br>
+
+    <% end %>
+
+  </div>
+    
+    <div class='col-md-3'>
+    <a><%= link_to "Show", book_path(@one.id) %></a> |<a> <%= link_to "Back", books_path %></a>
+    
+    </div>
+ </div>
+</div>
+
+<footer>
+  <div class='container'>
+  	<div class='row'>
+    	<div class='col-xs-3 col-xs-offset-9'>
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>

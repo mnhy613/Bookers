@@ -1,0 +1,53 @@
+<div class="container">
+ <div class="row content">
+ <%= render 'users/list', user: current_user, book: @book %>
+ <div class='col-xs-9'>
+    <h2>Books</h2>
+
+    <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+
+            <th>image</th>
+            <th>name</th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+                    <% @users.each do |f| %>
+                <tr>
+                    <td>
+
+
+                    <%= attachment_image_tag f, :profile_image, :size => "100x100", fallback: "no_image.png" %>
+
+                   
+                    </td>
+
+                    <td>
+                    <%= f.name %>
+                    </td>
+                    <td>
+                    <%= link_to "Show", user_path(f.id) %>
+                    </td>
+                     <% end %>
+                </tr>
+
+        </tbody>
+    </table>
+
+  </div>
+ </div>
+</div>
+
+<footer>
+  <div class='container'>
+    <div class='row'>
+        <div class='col-xs-3 col-xs-offset-9'>
+            <p>CopyRight Infratop.inc</p>
+        </div>
+    </div>
+  </div>
+</footer>
